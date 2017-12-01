@@ -72,14 +72,13 @@ protected:
     // Init
 
     void initParameter(uint32_t index, Parameter& parameter) override;
-    void initProgramName(uint32_t index, String& programName) override;
 
     // -------------------------------------------------------------------
     // Internal data
 
     float getParameterValue(uint32_t index) const override;
     void  setParameterValue(uint32_t index, float value) override;
-    void  loadProgram(uint32_t index) override;
+    void  setHighLevelParameterValue(uint32_t index, float value);
 
     // -------------------------------------------------------------------
     // Process
@@ -97,6 +96,11 @@ protected:
 private:
 
     static const uint32_t BUFFER_SIZE = 256;
+
+    uint32_t size;
+    uint32_t shape;
+    uint32_t tonality;
+    uint32_t presence;
 
     float dry_level;
     float early_level;
